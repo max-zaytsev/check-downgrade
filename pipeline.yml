@@ -14,5 +14,5 @@ steps:
     git log
     git status
     git branch
-    git fetch origin some-pr
+    git fetch origin some-pr-base
   displayName: 'Run a multi-line script'
