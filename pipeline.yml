@@ -11,6 +11,8 @@ pool:
 
 steps:
 - script: |
+    git log
     git status
+    git branch
+    git fetch origin some-pr
   displayName: 'Run a multi-line script'
-  
