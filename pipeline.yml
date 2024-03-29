@@ -13,5 +13,6 @@ steps:
 - script: |
     git log
     git status
+    git branch
   displayName: 'Run a multi-line script'
   
