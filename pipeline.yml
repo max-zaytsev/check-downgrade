@@ -23,5 +23,9 @@ steps:
     echo == 1 ==
     git fetch origin pull/$(SYSTEM.PULLREQUEST.PULLREQUESTNUMBER)/head:$(SYSTEM.PULLREQUEST.SOURCEBRANCH)
     echo == 2 ==
-    git --no-pager diff --name-only --merge-base origin/$(System.PullRequest.TargetBranch) $(SYSTEM.PULLREQUEST.SOURCEBRANCH)
+    baseCommit=git merge-base $(SYSTEM.PULLREQUEST.SOURCEBRANCH) origin/$(System.PullRequest.TargetBranch)
+    echo == 3 ==
+    echo $baseCommit
+    echo == 4 ==
+    git --no-pager diff --name-only $baseCommit $(SYSTEM.PULLREQUEST.SOURCEBRANCH)
   displayName: 'Run a multi-line script'
