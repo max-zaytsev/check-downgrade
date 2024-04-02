@@ -20,6 +20,6 @@ steps:
     git log
     git status
     git branch
-    git fetch origin pull/$(SYSTEM.PULLREQUEST.PULLREQUESTNUMBER)/head:$(Build.SourceBranch)
-    git --no-pager diff --name-only --merge-base origin/$(System.PullRequest.TargetBranch) $(Build.SourceBranch)
+    git fetch origin pull/$(SYSTEM.PULLREQUEST.PULLREQUESTNUMBER)/head:$(SYSTEM.PULLREQUEST.SOURCEBRANCH)
+    git --no-pager diff --name-only --merge-base origin/$(System.PullRequest.TargetBranch) $(SYSTEM.PULLREQUEST.SOURCEBRANCH)
   displayName: 'Run a multi-line script'
