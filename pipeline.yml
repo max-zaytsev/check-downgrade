@@ -23,7 +23,7 @@ steps:
     echo == 1 ==
     git fetch origin pull/$(SYSTEM.PULLREQUEST.PULLREQUESTNUMBER)/head:$(SYSTEM.PULLREQUEST.SOURCEBRANCH)
     echo == 2 ==
-    baseCommit= $( git merge-base $(SYSTEM.PULLREQUEST.SOURCEBRANCH) origin/$(System.PullRequest.TargetBranch) 2>&1 )
+    baseCommit= $(git merge-base $(SYSTEM.PULLREQUEST.SOURCEBRANCH) origin/$(System.PullRequest.TargetBranch))
     echo == 3 ==
     echo $baseCommit
     echo == 4 ==
