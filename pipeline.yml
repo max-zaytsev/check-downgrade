@@ -20,6 +20,7 @@ steps:
     git log
     git status
     git branch
+    echo == 1 ==
     git fetch origin pull/$(SYSTEM.PULLREQUEST.PULLREQUESTNUMBER)/head:$(SYSTEM.PULLREQUEST.SOURCEBRANCH)
-    git --no-pager diff --name-only --merge-base origin/$(System.PullRequest.TargetBranch) $(SYSTEM.PULLREQUEST.SOURCEBRANCH)
-  displayName: 'Run a multi-line script'
+    echo == 2 ==
+    splayName: 'Run a multi-line script'
