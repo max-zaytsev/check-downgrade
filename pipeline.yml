@@ -12,6 +12,11 @@ pool:
 steps:
 - script: |
     echo $(SYSTEM.PULLREQUEST.SOURCEBRANCH)
+    echo $(Build.SourceBranch)
+    echo $(Build.SourceBranchName)
+    echo $(System.PullRequest.IsFork)
+    echo $(System.PullRequest.targetBranchName)
+    echo $(System.PullRequest.TargetBranch)
     git log
     git status
     git branch
