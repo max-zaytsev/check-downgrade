@@ -22,6 +22,7 @@ steps:
     git branch
     echo == 1 ==
     git fetch origin pull/$(SYSTEM.PULLREQUEST.PULLREQUESTNUMBER)/head:$(SYSTEM.PULLREQUEST.SOURCEBRANCH)
+    git fetch origin $(System.PullRequest.TargetBranch):$(System.PullRequest.TargetBranch)
     echo == 2 ==
     git merge-base $(SYSTEM.PULLREQUEST.SOURCEBRANCH) origin/$(System.PullRequest.TargetBranch)
     echo == 3 ==
