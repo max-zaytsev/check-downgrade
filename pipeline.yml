@@ -11,6 +11,26 @@ pool:
 
 steps:
 - script: |
+    echo $(SYSTEM.PULLREQUEST.SOURCEBRANCH)
+    echo $(Build.SourceBranch)
+    echo $(Build.SourceBranchName)
+    echo $(System.PullRequest.IsFork)
+    echo $(System.PullRequest.targetBranchName)
+    echo $(System.PullRequest.TargetBranch)
+    git log
     git status
+    git branch
+    git fetch origin some-pr-base
+    echo $(System.PullRequest.TargetBranch)
+    git log
+    git status
+    git branch
+    echo == 1 ==
+    git fetch origin pull/$(SYSTEM.PULLREQUEST.PULLREQUESTNUMBER)/head:$(SYSTEM.PULLREQUEST.SOURCEBRANCH)
+    echo == 2 ==
+    git merge-base $(SYSTEM.PULLREQUEST.SOURCEBRANCH) origin/$(System.PullRequest.TargetBranch)
+    echo == 3 ==
+    baseCommit=$(git merge-base $(SYSTEM.PULLREQUEST.SOURCEBRANCH) origin/$(System.PullRequest.TargetBranch)
+    echo == 4 ==
+    git --no-pager diff --name-only $baseCommit $(SYSTEM.PULLREQUEST.SOURCEBRANCH)
   displayName: 'Run a multi-line script'
-  
