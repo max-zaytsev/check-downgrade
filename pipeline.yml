@@ -31,4 +31,6 @@ steps:
     echo $baseCommit
     echo == 5 == 
     git --no-pager diff --name-only $baseCommit $(SYSTEM.PULLREQUEST.SOURCEBRANCH)
+    git --no-pager diff --name-only $(System.PullRequest.TargetBranch)...$(SYSTEM.PULLREQUEST.SOURCEBRANCH)
+    git --no-pager diff --name-only $(System.PullRequest.TargetBranch)..$(SYSTEM.PULLREQUEST.SOURCEBRANCH)
   displayName: 'Run a multi-line script '
